@@ -1,3 +1,4 @@
 repo git
 -- no olvidarse del tokens
 -- se cambió el usuario, correo y contraseña
+-- la carpeta en repo es esp1 ojo
