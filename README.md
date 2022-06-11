@@ -1,7 +1,7 @@
 # CEIOT BASE
 
 Código para ejemplo básico de IoT
-
+CUIDADO LA CARPETA ES esp1
 
 ![](./img/arch.png)
 
@@ -73,13 +73,13 @@ Por algún motivo que ignoro, la instalación no usa todo el espacio disponible,
    
 ### Código referencia
 
-     mkdir ~/esp
-     cd ~/esp    
+     mkdir ~/esp1
+     cd ~/esp1    
      git clone https://github.com/cpantel/ceiot_base.git
 
 ### Cambio url
 
-     cd ~/esp/ceiot_base
+     cd ~/esp1/ceiot_base
      # en .git/config reemplazar
      # url = https://github.com/cpantel/ceiot_base.git
      # por
@@ -108,14 +108,14 @@ Por algún motivo que ignoro, la instalación no usa todo el espacio disponible,
 
 ### Instalación dependencias del proyecto
 
-    cd ~/esp/ceiot_base/api
+    cd ~/esp1/ceiot_base/api
     npm install; # express body-parser mongodb-memory-server mongodb pg-mem
 
 ### Pruebas
 
 En una terminal servidor API:
 
-    cd ~/esp/ceiot_base/api
+    cd ~/esp1/ceiot_base/api
     node index.js
     
 Esperamos:
@@ -126,7 +126,7 @@ Esperamos:
 
 En otra terminal, servidor SPA:
 
-    cd ~/esp/ceiot_base/api/spa
+    cd ~/esp1/ceiot_base/api/spa
     ./rebuild.sh
     
 Esperamos:
@@ -136,8 +136,10 @@ Esperamos:
     
 Cliente, en otra terminal:
 
-    cd ~/esp/ceiot_base/tools
-    ./get_color_devices.sh 14
+    cd ~/esp1/ceiot_base/tools
+    ./get_color_devices.sh 14 (este no es el archivo tampoco hay 14 dispositivos se puede cargar 00 y 01)
+El correcto es: 
+./get_color_device.sh 00 
     
 Esperamos:
     
@@ -164,12 +166,12 @@ En un navegador, probar las siguientes URLs:
 En el último paso, alcanza con elegir sólo las que uno tiene.
 
     sudo apt install git wget flex bison gperf python3 python3-pip python3-setuptools cmake ninja-build ccache libffi-dev libssl-dev dfu-util libusb-1.0-0 
-    cd ~/esp
+    cd ~/esp1
     git clone https://github.com/UncleRus/esp-idf-lib.git
     git clone -b v4.4 --recursive https://github.com/espressif/esp-idf.git
-    cd ~/esp/esp-idf-lib
+    cd ~/esp1/esp-idf-lib
     git checkout 0.8.2
-    cd ~/esp/esp-idf
+    cd ~/esp1/esp-idf
     git checkout release/v4.4
     git submodule update --init --recursive
     # según tengas esp32, esp32c3 o esp32s2:
@@ -225,10 +227,10 @@ Es conveniente comenzar con ESP32c3.
 Dado un microcontrolador **MICRO** entre *esp32*, *esp32c3* y *esp32s2* y un sensor SENSOR entre *bmp280* y *dht11*:
 
     # Para habilitar la toolchain
-    cd ~/esp/esp-idf
+    cd ~/esp1/esp-idf
     . ./export.sh
     # Ir a la carpeta del objetivo deseado
-    cd ~/esp/ceiot_base/${MICRO}-${SENSOR}
+    cd ~/esp1/ceiot_base/${MICRO}-${SENSOR}
     cp ../config/config.h.template config.h
     # modificar en config.h 
     #  dirección del servidor
@@ -397,4 +399,4 @@ Sería conveniente quitar de main.c cualquier elemento variable para no afectar 
 
 Renombrar esp32 a esp32-dht11 
 
-modificado por Raúl Romero
+modificado por Raúl Romero 11-06
