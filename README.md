@@ -397,3 +397,4 @@ Sería conveniente quitar de main.c cualquier elemento variable para no afectar 
 
 Renombrar esp32 a esp32-dht11 
 
+modificado por Raúl Romero
