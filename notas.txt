@@ -2,3 +2,5 @@ repo git
 -- no olvidarse del tokens
 -- se cambió el usuario, correo y contraseña
 -- la carpeta en repo es esp1 ojo
+-- el nombre de red lo carge directamente en el archivo sdkconfig por que el set-wifi.sh tiraba el error:
+sed: -e expression #1, char 65: unterminated `s' command

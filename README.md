@@ -180,6 +180,7 @@ En el último paso, alcanza con elegir sólo las que uno tiene.
     ./install.sh esp32s2
     # pueden ir juntos en una sola línea, sin espacios, por ejemplo:
     ./install.sh esp32,esp32c3,esp32s2
+	# en mi caso esp32c3 y esp32
 
 Relato informal de la experiencia de exploración:
 
@@ -249,13 +250,14 @@ Dado un microcontrolador **MICRO** entre *esp32*, *esp32c3* y *esp32s2* y un sen
     #    SDA_GPIO
     #    SCL_GPIO
     idf.py set-target ${MICRO}
+	# cargue manualmente el nombre de red 
     ../set-wifi.sh
     idf.py build
     idf.py flash
     idf.py monitor
 
 ### Microcontrolador ESP32
-
+(en mi caso hay que apretar botón contrario al lado del led)
 Dependiendo del modelo, puede hacer falta oprimir los botones para el paso **flash**:
 
 #### Receta 1 (comprobada por docente)
