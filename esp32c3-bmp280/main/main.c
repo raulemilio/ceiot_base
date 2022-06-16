@@ -31,7 +31,7 @@
 static const char *TAG = "temp_collector";
 
 //static char *BODY = "id="DEVICE_ID"&t=%0.2f&h=%0.2f";
-static char *BODY = "id="DEVICE_ID"&key="KEY"&t=%0.2f&p=%0.2f";// modificado para desafío mostramos la presión
+static char *BODY = "id="DEVICE_ID"&key="KEY"&t=%0.2f&h=%0.2f&p=%0.2f";// modificado para desafío mostramos la presión
 
 
 static char *REQUEST_POST = "POST "WEB_PATH" HTTP/1.0\r\n"
@@ -78,7 +78,7 @@ static void http_get_task(void *pvParameters)
 //            if (bme280p) {
                 ESP_LOGI(TAG,", Humidity: %.2f\n", humidity);
 //		sprintf(body, BODY, temperature , humidity );
-		sprintf(body, BODY, temperature , pressure);// modificado para desafío mostramos la presión
+		sprintf(body, BODY, temperature , humidity,pressure);// modificado para desafío mostramos la presión
                 sprintf(send_buf, REQUEST_POST, (int)strlen(body),body );
 //	    } else {
 //                sprintf(send_buf, REQUEST_POST, temperature , 0);

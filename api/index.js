@@ -42,8 +42,8 @@ app.use('/js', express.static('spa'));
 const PORT = 8080;
 
 app.post('/measurement', function (req, res) {
--       console.log("device id    : " + req.body.id + " key         : " + req.body.key + " temperature : " + req.body.t + " pressure     : " + req.body.p);// modificado para desafío	
-    const {insertedId} = insertMeasurement({id:req.body.id, t:req.body.t, p:req.body.p});
+-       console.log("device id    : " + req.body.id + " key         : " + req.body.key + " temperature : " + req.body.t + " humidity     : " + req.body.h + " pressure     : " + req.body.p );// modificado para desafío	
+    const {insertedId} = insertMeasurement({id:req.body.id, t:req.body.t, h:req.body.h, p:req.body.p});
 	res.send("received measurement into " +  insertedId);
 });
 
@@ -177,10 +177,10 @@ app.get('/admin/:command', function(req,res) {
 
 
 startDatabase().then(async() => {
-    await insertMeasurement({id:'00', t:'18', p:'78'});//cambiamos h por p
-    await insertMeasurement({id:'00', t:'19', p:'77'});
-    await insertMeasurement({id:'00', t:'17', p:'77'});
-    await insertMeasurement({id:'01', t:'17', p:'77'});
+    await insertMeasurement({id:'00', t:'18', h:'20',p:'78'});//agregamos p
+    await insertMeasurement({id:'00', t:'19', h:'21',p:'77'});
+    await insertMeasurement({id:'00', t:'17', h:'22',p:'77'});
+    await insertMeasurement({id:'01', t:'17', h:'23',p:'77'});
     console.log("mongo measurement database Up");
 
     db.public.none("CREATE TABLE devices (device_id VARCHAR, name VARCHAR, key VARCHAR)");
